@@ -1,0 +1,32 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+
+    .card {
+        width: 250px;
+        height: 450px;
+        overflow-y: scroll;
+        border-radius: 20px;
+        margin: 25px;
+        padding: 15px;
+    }
+    .description {
+        white-space: nowrap; 
+        width: 100%; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
+    }
+
+    .see-more-section {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+}

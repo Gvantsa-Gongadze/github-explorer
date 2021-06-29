@@ -1,0 +1,56 @@
+<section class="search-container">
+  <div class="title">Query through Github repositories</div>
+  <form style="text-align: center;">
+    <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input 
+            type="text" 
+            matInput 
+            [formControl]="search"
+            placeholder="Search">
+        <mat-error *ngIf="search.hasError('required')">
+            Input is required
+        </mat-error>
+    </mat-form-field>
+    <div class="format-container">
+      <mat-label>Pick a format: </mat-label>
+      <mat-radio-group [formControl]="fromat" aria-label="Select an option">
+        <mat-radio-button class="tabular" value="tabular">Tabular</mat-radio-button>
+        <mat-radio-button value="card">Card format</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </form>
+</section>
+
+<section class="results-container">
+  <div class="spinner-container" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
+  <ng-container *ngIf="repoList.length > 0; else noData">
+    <ng-container [ngSwitch]="fromatValue">
+      <ng-container *ngSwitchCase="'tabular'">
+        <app-tabular [repoList]="repoList"></app-tabular>
+      </ng-container>
+      <ng-container *ngSwitchCase="'card'">
+        <app-card-format class="card-container" [repoList]="repoList"></app-card-format>
+      </ng-container>
+      <ng-container *ngSwitchDefault></ng-container>
+    </ng-container>
+    <mat-paginator 
+      [pageIndex]="pageCounter - 1"
+      hidePageSize=true
+      [length]="totalRepositories" 
+      [pageSize]="10"
+      (page)="onPaginateChange($event)"
+    ></mat-paginator>
+  </ng-container>
+  <ng-template #noData>
+    <div class="no-data" *ngIf="search?.value && !isLoading">
+      No data was found! <br>
+      Try searching for different repository.
+    </div>
+  </ng-template>
+</section>
+
+
+

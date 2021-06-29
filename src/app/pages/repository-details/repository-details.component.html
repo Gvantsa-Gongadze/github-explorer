@@ -1,0 +1,48 @@
+<ng-container *ngIf="repoData">
+    <div class="detailed-info-container">
+        <div class="profile">
+            <img class="profile-picture" [src]="repoData.owner?.avatar_url" alt="avatar">
+            <div class="name">{{repoData.owner.login}}</div>
+            <div class="full-name">{{repoData.full_name}}</div>
+        </div>
+        <div class="description-container">
+            <div class="login-name">
+                <strong>Login name:</strong> {{repoData.owner.login}}
+            </div>
+            <div class="repo-name">
+                <strong>Repository name:</strong> {{repoData.name}}
+            </div>
+            <div class="repo-description">
+                <strong>Repository description:</strong> {{repoData.description}}
+            </div>
+            <div class="repo-description">
+                <strong>publication date:</strong> {{repoData.pushed_at | date}}
+            </div>
+            <div class="repo-language">
+                <strong>Language:</strong> {{ repoData.language || 'Not defined' }}
+            </div>
+            <div>
+                <strong>
+                    For more information visit Github:         
+                </strong>
+                <a target="_blank" [href]=repoData.svn_url>
+                    <button 
+                        mat-raised-button
+                        class="see-more-button"
+                        >see more
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="go-back-section">
+        <button 
+            mat-raised-button
+            class="go-back-button"
+            routerLink="/" 
+        >
+            <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_back</mat-icon>
+            Go back
+        </button>
+    </div>
+</ng-container>

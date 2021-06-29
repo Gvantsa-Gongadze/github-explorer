@@ -1,0 +1,68 @@
+.detailed-info-container {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+
+    .profile {
+        padding: 10px;
+        display: inline-block;
+        
+        .profile-picture {
+            width: 300px;
+            margin-right: 20px;
+            border: 2px solid gray;
+            box-shadow: 10px 10px 20px gray;
+            border-radius: 50%;
+        }
+        .name {
+            margin-top: 15px;
+            font-size: 25px;
+            margin-left: 10px;
+        }
+        .full-name {
+            font-size: 15px;
+            margin-top: 10px;
+            margin-left: 10px;
+            color: gray;
+        }
+    }
+
+    .description-container {
+        max-width: 600px;
+        margin: 5px;
+        padding: 25px;
+        border: 1px solid rgba(128, 128, 128, 0.253);
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+
+        .repo-description {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .login-name {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+        .repo-name {
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+        .repo-language {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    }
+}
+.go-back-section {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+
+    .go-back-button {
+        margin-bottom: 20px;
+    }
+}
